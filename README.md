@@ -110,23 +110,4 @@ LoginScreen ──sign in──▶ DashboardScreen
 
 ---
 
-## 💡 Viva Notes
-
-### Why Provider?
-Provider is Flutter's recommended lightweight state management. `ChangeNotifier` + `notifyListeners()` updates all listening widgets when state changes.
-
-### Why separate providers?
-- **AuthProvider** handles only auth logic (login, signup, logout)
-- **WorkoutProvider** handles only workout logic (session, timer, exercises)
-- This is the **Single Responsibility Principle** — each class does one thing
-
-### How does navigation work?
-- `Navigator.push()` — pushes a new screen on the stack
-- `Navigator.pushReplacement()` — replaces current screen (used after login)
-- `Navigator.pushAndRemoveUntil()` — clears entire stack (used after signup)
-
-### How does the rest timer work?
-`WorkoutProvider` uses Dart's `Timer.periodic()` which fires every second, decrements `_restSeconds`, and calls `notifyListeners()` to update the UI countdown display.
-
-### Form validation
-Flutter's `Form` + `GlobalKey<FormState>` allows running `validate()` on all fields at once. Each `TextFormField` has a `validator` callback that returns an error string or null.
+ 
