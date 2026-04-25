@@ -1,0 +1,26 @@
+name: fitness_app
+description: A fitness platform app with health tracking, workout planning, and AI-driven recommendations.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.6
+  provider: ^6.1.1          # State management
+  shared_preferences: ^2.2.2 # Local storage for auth persistence
+  fl_chart: ^0.68.0          # Charts for health metrics
+  percent_indicator: ^4.2.3  # Circular/linear progress indicators
+  intl: ^0.19.0              # Date formatting
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+  # App fonts and assets can be added here later
