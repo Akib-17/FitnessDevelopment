@@ -179,7 +179,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   controller: _passwordController,
                   obscureText: _obscurePassword,
                   textInputAction: TextInputAction.done,
-                  onFieldSubmitted: (_) => _handleLogin(), // Submit on keyboard done
+                  onFieldSubmitted: (_) =>
+                      _handleLogin(), // Submit on keyboard done
                   decoration: InputDecoration(
                     labelText: 'Password',
                     prefixIcon: const Icon(Icons.lock_outline, size: 20),
@@ -210,7 +211,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 // ── Login Button ──────────────────────────────────────────
                 ElevatedButton(
                   onPressed: auth.status == AuthStatus.loading
-                      ? null  // Disable button while loading
+                      ? null // Disable button while loading
                       : _handleLogin,
                   child: auth.status == AuthStatus.loading
                       ? const SizedBox(
@@ -227,11 +228,11 @@ class _LoginScreenState extends State<LoginScreen> {
                 const SizedBox(height: 20),
 
                 // ── Divider ───────────────────────────────────────────────
-                Row(
+                const Row(
                   children: [
-                    const Expanded(child: Divider(color: AppColors.textHint)),
+                    Expanded(child: Divider(color: AppColors.textHint)),
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 12),
+                      padding: EdgeInsets.symmetric(horizontal: 12),
                       child: Text(
                         'or',
                         style: TextStyle(
@@ -240,7 +241,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                     ),
-                    const Expanded(child: Divider(color: AppColors.textHint)),
+                    Expanded(child: Divider(color: AppColors.textHint)),
                   ],
                 ),
 

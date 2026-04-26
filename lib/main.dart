@@ -5,6 +5,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'providers/auth_provider.dart';
+import 'providers/nutrition_provider.dart';
+import 'providers/trainer_provider.dart';
 import 'providers/workout_provider.dart';
 import 'screens/login_screen.dart';
 import 'utils/app_theme.dart';
@@ -29,6 +31,12 @@ class FitnessApp extends StatelessWidget {
 
         // WorkoutProvider: manages active session, exercise completion, rest timer
         ChangeNotifierProvider(create: (_) => WorkoutProvider()),
+
+        // NutritionProvider: diet tracking, meals, macro totals
+        ChangeNotifierProvider(create: (_) => NutritionProvider()),
+
+        // TrainerProvider: marketplace browsing & filtering
+        ChangeNotifierProvider(create: (_) => TrainerProvider()),
       ],
       child: MaterialApp(
         title: 'FitApp',

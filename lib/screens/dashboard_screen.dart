@@ -12,7 +12,8 @@ import '../providers/workout_provider.dart';
 import '../utils/app_theme.dart';
 import 'workout_screen.dart';
 import 'profile_screen.dart';
-import 'login_screen.dart';
+import 'nutrition_screen.dart';
+import 'trainers_screen.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -133,7 +134,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   // ── Metric Cards: Steps, Calories, Heart Rate ─────────────────────────────
   Widget _buildMetricCards() {
-    return Row(
+    return const Row(
       children: [
         // Steps
         Expanded(
@@ -144,7 +145,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             color: AppColors.primary,
           ),
         ),
-        const SizedBox(width: 10),
+        SizedBox(width: 10),
 
         // Calories
         Expanded(
@@ -155,7 +156,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             color: AppColors.warning,
           ),
         ),
-        const SizedBox(width: 10),
+        SizedBox(width: 10),
 
         // Heart Rate — highlighted in blue as "active" metric
         Expanded(
@@ -204,13 +205,13 @@ class _DashboardScreenState extends State<DashboardScreen> {
               BarChartData(
                 maxY: 100,
                 minY: 0,
-                gridData: FlGridData(show: false),
+                gridData: const FlGridData(show: false),
                 borderData: FlBorderData(show: false),
                 titlesData: FlTitlesData(
                   // Only show bottom (day) labels
-                  leftTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
-                  topTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
-                  rightTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
+                  leftTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
+                  topTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
+                  rightTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
                   bottomTitles: AxisTitles(
                     sideTitles: SideTitles(
                       showTitles: true,
@@ -380,12 +381,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
         ),
         borderRadius: BorderRadius.circular(20),
       ),
-      child: Row(
+      child: const Row(
         children: [
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
+              children: [
                 Text(
                   '🤖 AI Recommendation',
                   style: TextStyle(
@@ -406,8 +407,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
               ],
             ),
           ),
-          const SizedBox(width: 12),
-          const Icon(Icons.auto_awesome_rounded, color: Colors.white, size: 36),
+          SizedBox(width: 12),
+          Icon(Icons.auto_awesome_rounded, color: Colors.white, size: 36),
         ],
       ),
     );
@@ -460,11 +461,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
           // Progress bar
           ClipRRect(
             borderRadius: BorderRadius.circular(8),
-            child: LinearProgressIndicator(
+            child: const LinearProgressIndicator(
               value: progress,
               minHeight: 10,
               backgroundColor: AppColors.primaryLight,
-              valueColor: const AlwaysStoppedAnimation<Color>(AppColors.primary),
+              valueColor: AlwaysStoppedAnimation<Color>(AppColors.primary),
             ),
           ),
         ],
@@ -492,6 +493,16 @@ class _DashboardScreenState extends State<DashboardScreen> {
             // Navigate to Workout screen
             Navigator.of(context).push(
               MaterialPageRoute(builder: (_) => const WorkoutScreen()),
+            );
+          } else if (index == 2) {
+            // Navigate to Nutrition screen
+            Navigator.of(context).push(
+              MaterialPageRoute(builder: (_) => const NutritionScreen()),
+            );
+          } else if (index == 3) {
+            // Navigate to Trainers screen
+            Navigator.of(context).push(
+              MaterialPageRoute(builder: (_) => const TrainersScreen()),
             );
           } else if (index == 4) {
             // Navigate to Profile screen
@@ -543,40 +554,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
     );
   }
 
-  // ── Logout Confirmation Dialog ─────────────────────────────────────────────
-  void _showLogoutDialog(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (_) => AlertDialog(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        title: const Text('Log out',
-            style: TextStyle(fontWeight: FontWeight.w700)),
-        content: const Text('Are you sure you want to log out?'),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: const Text('Cancel'),
-          ),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.pop(context);
-              context.read<AuthProvider>().logout();
-              // Navigate back to login screen, removing all routes
-              Navigator.of(context).pushAndRemoveUntil(
-                MaterialPageRoute(builder: (_) => const LoginScreen()),
-                (route) => false,
-              );
-            },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: AppColors.error,
-              minimumSize: const Size(80, 40),
-            ),
-            child: const Text('Log out'),
-          ),
-        ],
-      ),
-    );
-  }
 }
 
 // ── Metric Card Widget ──────────────────────────────────────────────────────

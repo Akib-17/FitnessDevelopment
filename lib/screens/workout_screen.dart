@@ -37,7 +37,7 @@ class WorkoutScreen extends StatelessWidget {
         ),
         body: const TabBarView(
           children: [
-            _ActiveSessionTab(),  // Tab 1: Current workout
+            _ActiveSessionTab(), // Tab 1: Current workout
             _WorkoutHistoryTab(), // Tab 2: Past sessions
           ],
         ),
@@ -101,9 +101,7 @@ class _ActiveSessionTab extends StatelessWidget {
 
                 // Determine if this is the next exercise to do
                 final isNext = !exercise.isCompleted &&
-                    session.exercises
-                        .take(index)
-                        .every((e) => e.isCompleted);
+                    session.exercises.take(index).every((e) => e.isCompleted);
 
                 return _ExerciseCard(
                   exercise: exercise,
@@ -112,7 +110,7 @@ class _ActiveSessionTab extends StatelessWidget {
                       ? () => workoutProvider.completeExercise(exercise.id)
                       : null, // Disable if session not started
                 );
-              }).toList(),
+              }),
 
               const SizedBox(height: 20),
 
@@ -199,11 +197,11 @@ class _ActiveSessionTab extends StatelessWidget {
               ),
             )
           else
-            Row(
+            const Row(
               children: [
-                const Icon(Icons.circle, color: AppColors.success, size: 12),
-                const SizedBox(width: 6),
-                const Text(
+                Icon(Icons.circle, color: AppColors.success, size: 12),
+                SizedBox(width: 6),
+                Text(
                   'Session in progress',
                   style: TextStyle(
                     color: Colors.white,
@@ -248,10 +246,10 @@ class _ActiveSessionTab extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 14),
-          Expanded(
+          const Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
+              children: [
                 Text(
                   'Rest time',
                   style: TextStyle(
@@ -326,7 +324,8 @@ class _ActiveSessionTab extends StatelessWidget {
               value: session.progress,
               minHeight: 8,
               backgroundColor: AppColors.primaryLight,
-              valueColor: const AlwaysStoppedAnimation<Color>(AppColors.success),
+              valueColor:
+                  const AlwaysStoppedAnimation<Color>(AppColors.success),
             ),
           ),
         ],
@@ -339,7 +338,7 @@ class _ActiveSessionTab extends StatelessWidget {
 // Displays a single exercise with its details and a complete button.
 class _ExerciseCard extends StatelessWidget {
   final Exercise exercise;
-  final bool isNext;           // Highlights as "next to do"
+  final bool isNext; // Highlights as "next to do"
   final VoidCallback? onComplete;
 
   const _ExerciseCard({
@@ -505,7 +504,7 @@ class _HistoryCard extends StatelessWidget {
         ? 'Today'
         : diff == 1
             ? 'Yesterday'
-            : '${diff} days ago';
+            : '$diff days ago';
 
     return Container(
       padding: const EdgeInsets.all(16),
