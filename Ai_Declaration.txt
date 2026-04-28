@@ -1,0 +1,64 @@
+============================================================
+           AI USAGE DECLARATION
+============================================================
+
+Name: Md Akib
+Student ID: 21201081
+Assignment: FitnessDevelopment
+
+------------------------------------------------------------
+1. AI TOOLS USED (check all that apply)
+------------------------------------------------------------
+[✔] ChatGPT
+[ ] GitHub Copilot
+[ ] Google Gemini
+[ ] Claude
+[ ] Cursor
+[ ] Other: __________________
+
+------------------------------------------------------------
+2. PURPOSE OF AI USE (check all that apply)
+------------------------------------------------------------
+[✔] Learning/understanding concepts
+[✔] Debugging my code
+[✔] Generating code snippets
+[✔] Writing text content
+[✔] Design/styling ideas
+[ ] Image generation
+[ ] Other: __________________
+
+------------------------------------------------------------
+3. DESCRIPTION OF AI USE
+------------------------------------------------------------
+I used ChatGPT to assist with understanding and refining core components 
+of the FitnessDevelopment project. This included:
+- Reviewing React and Node.js structures for better organization
+- Getting suggestions on improving API interaction and error handling
+- Refining UI/UX design ideas for user dashboards and workout tracking
+- Generating small reusable code snippets for form validation and routing
+- Clarifying best practices for project documentation and naming conventions
+
+All code was reviewed, tested, and modified manually to fit the project’s 
+specific requirements.
+
+------------------------------------------------------------
+4. AI-ASSISTED SECTIONS
+------------------------------------------------------------
+File: src/components/WorkoutForm.jsx     Section: Form validation & event handling
+File: src/pages/Dashboard.jsx            Section: Layout structure & styling ideas
+File: backend/routes/userRoutes.js       Section: Authentication route improvements
+File: docs/README.md                     Section: Project overview and description
+
+------------------------------------------------------------
+5. DECLARATION
+------------------------------------------------------------
+I declare that:
+- This disclosure is complete and accurate
+- I understand all code in my submission
+- I can explain and modify my work if asked
+- I take full responsibility for my submission
+
+Signature: ______Akib_________________
+
+
+
